@@ -19,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (config('app.env') === 'production') {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+        }
         // Fix Livewire update route for subfolder deployment.
         // The app runs at /smkn8/public (no virtual host), so PHP sees routes
         // relative to public/ while the browser sees them relative to /.
