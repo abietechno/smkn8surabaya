@@ -123,7 +123,7 @@ php artisan view:cache
 
 1. Di Terminal, atur hak akses *folder* supaya aaPanel/Apache punya akses tulis pada folder vital:
    ```bash
-   chown -R www:www /www/wwwroot/domainanda.com
+   chown -R www:www /www/wwwroot/smkn8surabaya.abietech.com
    chmod -R 775 /www/wwwroot/domainanda.com/storage
    chmod -R 775 /www/wwwroot/domainanda.com/bootstrap/cache
    ```
@@ -131,7 +131,9 @@ php artisan view:cache
 3. Klik pada nama domain *website* Anda, masuk ke tab **Site directory**.
 4. Di bagian **Running directory (Run directory)**, ubah *dropdown* pilihan tersebut menjadi `/public`.
    *(Ini mencegah file `.env` bocor dan menetapkan titik masuk Laravel di `/public/index.php`)*.
-5. Klik **Save**.
+5. **(Penting - Cegah Error `open_basedir`)**: Di tab *Site directory* yang sama, **hapus centang/hilangkan ceklis** pada opsi **Anti-XSS attack (Cross-domain/Cross-site/open_basedir)**.
+   *(Jika opsi ini dibiarkan menyala, PHP hanya boleh membaca file di dalam folder `/public` dan akan error saat `index.php` mencoba memuat file `../vendor/autoload.php` atau `../storage/`).*
+6. Klik **Save**.
 
 ## 9. Penyesuaian Apache (URL Rewrite / .htaccess)
 
