@@ -4,19 +4,6 @@ return [
 
     /*
     |---------------------------------------------------------------------------
-    | Livewire Asset URL
-    |---------------------------------------------------------------------------
-    |
-    | Here you can specify the URL Livewire should use to serve its JavaScript
-    | assets. Normally, Livewire will serve its assets from the root of
-    | your application, but you can change that here if you need to.
-    |
-    */
-
-    'asset_url' => '/smkn8/public/livewire/livewire.js',
-
-    /*
-    |---------------------------------------------------------------------------
     | Class Namespace
     |---------------------------------------------------------------------------
     |
@@ -196,4 +183,16 @@ return [
     */
 
     'release_token' => 'a',
+
+    /*
+    |---------------------------------------------------------------------------
+    | Asset URL
+    |---------------------------------------------------------------------------
+    |
+    | This allows you to specify the base URL for fetching Livewire assets.
+    | We set it to APP_URL so it forces absolute URLs on production, ignoring subfolder trails.
+    |
+    */
+
+    'asset_url' => env('APP_URL', 'http://localhost'),
 ];
