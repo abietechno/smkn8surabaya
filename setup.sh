@@ -3,6 +3,9 @@
 echo "Memulai proses Setup dan Perbaikan Website SMKN 8 Surabaya..."
 echo "==========================================================="
 
+echo -e "\n0. Menginstal Dependensi PHP Tambahan (Faker) untuk Production"
+composer install --optimize-autoloader --no-dev
+
 echo -e "\n1. Membersihkan sisa-sisa Cache (Ini akan memperbaiki error 404 Livewire / Admin)"
 php artisan optimize:clear
 php artisan config:clear
